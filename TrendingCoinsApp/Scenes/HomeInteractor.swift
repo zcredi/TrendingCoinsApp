@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeBusinessLogic {
     func fetchCryptoData()
+    func performSearch()
 }
 
 final class HomeInteractor: HomeBusinessLogic {
@@ -25,4 +26,8 @@ final class HomeInteractor: HomeBusinessLogic {
             }
         }
     }
+    
+    func performSearch() {
+            // Логика поиска или переход к экрану поиска
+        }
 }
