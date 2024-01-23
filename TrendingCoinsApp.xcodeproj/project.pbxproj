@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */; };
 		86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE912B60032B007EEA83 /* SceneDelegate.swift */; };
-		86A3BE942B60032B007EEA83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE932B60032B007EEA83 /* ViewController.swift */; };
 		86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE982B60032C007EEA83 /* Assets.xcassets */; };
 		86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */; };
+		86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */; };
+		86A3BEAE2B60078C007EEA83 /* SFPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */; };
+		86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */; };
+		86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingCoinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A3BE912B60032B007EEA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86A3BE932B60032B007EEA83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		86A3BE982B60032C007EEA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A3BE9B2B60032C007EEA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86A3BE9D2B60032C007EEA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFPro-Regular.otf"; path = "../../../../../San Francisco Pro Display/SFPro-Regular.otf"; sourceTree = "<group>"; };
+		86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFPro-Semibold.otf"; path = "../../../../../San Francisco Pro Display/SFPro-Semibold.otf"; sourceTree = "<group>"; };
+		86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,89 @@
 		86A3BE8E2B60032B007EEA83 /* TrendingCoinsApp */ = {
 			isa = PBXGroup;
 			children = (
-				86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */,
-				86A3BE912B60032B007EEA83 /* SceneDelegate.swift */,
-				86A3BE932B60032B007EEA83 /* ViewController.swift */,
+				86A3BEA72B600557007EEA83 /* Application */,
+				86A3BEA62B60054C007EEA83 /* Netwroks */,
+				86A3BEA32B600518007EEA83 /* Scenes */,
+				86A3BEA52B60052D007EEA83 /* SceneFactory */,
+				86A3BEA92B600571007EEA83 /* NavigationModule */,
+				86A3BEA82B600565007EEA83 /* UIConstants */,
+				86A3BEA42B600523007EEA83 /* SupportingFiles */,
+			);
+			path = TrendingCoinsApp;
+			sourceTree = "<group>";
+		};
+		86A3BEA32B600518007EEA83 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		86A3BEA42B600523007EEA83 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEAA2B600780007EEA83 /* Fonts */,
 				86A3BE982B60032C007EEA83 /* Assets.xcassets */,
 				86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */,
 				86A3BE9D2B60032C007EEA83 /* Info.plist */,
 			);
-			path = TrendingCoinsApp;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		86A3BEA52B60052D007EEA83 /* SceneFactory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SceneFactory;
+			sourceTree = "<group>";
+		};
+		86A3BEA62B60054C007EEA83 /* Netwroks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Netwroks;
+			sourceTree = "<group>";
+		};
+		86A3BEA72B600557007EEA83 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */,
+				86A3BE912B60032B007EEA83 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		86A3BEA82B600565007EEA83 /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB12B6008B1007EEA83 /* UIKit */,
+				86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */,
+			);
+			path = UIConstants;
+			sourceTree = "<group>";
+		};
+		86A3BEA92B600571007EEA83 /* NavigationModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NavigationModule;
+			sourceTree = "<group>";
+		};
+		86A3BEAA2B600780007EEA83 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */,
+				86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		86A3BEB12B6008B1007EEA83 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */,
+				86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */,
 				86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */,
+				86A3BEAE2B60078C007EEA83 /* SFPro-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A3BE942B60032B007EEA83 /* ViewController.swift in Sources */,
+				86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */,
 				86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */,
+				86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */,
 				86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
