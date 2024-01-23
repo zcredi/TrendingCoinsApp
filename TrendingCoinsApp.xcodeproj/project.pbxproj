@@ -17,6 +17,11 @@
 		86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */; };
 		86A3BEB72B600A4F007EEA83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB62B600A4F007EEA83 /* NetworkManager.swift */; };
 		86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB82B600BF0007EEA83 /* CoinModel.swift */; };
+		86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */; };
+		86A3BEBD2B6013D2007EEA83 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */; };
+		86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */; };
+		86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */; };
+		86A3BEC32B6013F2007EEA83 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		86A3BEB62B600A4F007EEA83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		86A3BEB82B600BF0007EEA83 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,10 @@
 		86A3BEA32B600518007EEA83 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */,
+				86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */,
+				86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */,
+				86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -96,6 +110,7 @@
 		86A3BEA52B60052D007EEA83 /* SceneFactory */ = {
 			isa = PBXGroup;
 			children = (
+				86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */,
 			);
 			path = SceneFactory;
 			sourceTree = "<group>";
@@ -241,8 +256,13 @@
 			files = (
 				86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */,
 				86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */,
+				86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */,
+				86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */,
+				86A3BEC32B6013F2007EEA83 /* HomeWorker.swift in Sources */,
+				86A3BEBD2B6013D2007EEA83 /* HomeViewController.swift in Sources */,
 				86A3BEB72B600A4F007EEA83 /* NetworkManager.swift in Sources */,
 				86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */,
+				86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */,
 				86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */,
 				86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */,
 			);
