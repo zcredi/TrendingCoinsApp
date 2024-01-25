@@ -58,13 +58,12 @@ class CoinCollectionViewCell: UICollectionViewCell {
         addSubview(changePercent24HrLabel)
     }
     
-    func configure(with viewModel: CryptoViewModel) {
-        print("Configuring cell with: \(viewModel)")
-        coinNameLabel.text = viewModel.id // Название монеты
-           coinSymbolLabel.text = viewModel.symbol // Символ
-           priceUsdLabel.text = viewModel.priceUsd // Цена
-           changePercent24HrLabel.text = viewModel.changePercent24Hr // Изменение
-       }
+    func configure(with viewModel: CryptoViewModel, localizer: Localizing) {
+        coinNameLabel.text = localizer.localizedString(for: viewModel.id)
+        coinSymbolLabel.text = viewModel.symbol
+        priceUsdLabel.text = viewModel.priceUsd
+        changePercent24HrLabel.text = viewModel.changePercent24Hr
+    }
 }
 
 //MARK: - setConstraints()
