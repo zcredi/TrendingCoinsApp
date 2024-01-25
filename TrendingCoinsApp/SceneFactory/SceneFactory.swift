@@ -16,7 +16,10 @@ class DefaultSceneFactory: SceneFactory {
         let viewController = HomeViewController()
         let interactor = HomeInteractor()
         let presenter = HomePresenter()
-        let worker = HomeWorker(networkService: NetworkService())
+        
+        // Создаем экземпляр NetworkManager для использования в HomeWorker
+        let networkManager = NetworkService()
+        let worker = HomeWorker(networkService: networkManager)
 
         viewController.interactor = interactor
         interactor.presenter = presenter
