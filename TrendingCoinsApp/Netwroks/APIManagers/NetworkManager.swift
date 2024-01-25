@@ -8,66 +8,58 @@
 import Foundation
 
 protocol NetworkProtocol {
-    func fetchData<T: Codable>(
+    func fetchData<T: Decodable>(
         url: URL,
-        headers: [String: String]?,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkManagerError>) -> Void
     )
 }
 
-enum NetworkError: Error, LocalizedError {
-    case urlError
-    case noData
-    case decodingError
-    
-    var errorDescription: String? {
-        switch self {
-        case .urlError:
-            return "URL формирование ошибки."
-        case .noData:
-            return "Ответ не содержит данных."
-        case .decodingError:
-            return "Ошибка декодирования данных."
-        }
-    }
+enum NetworkManagerError: Error {
+    case badData
+       case badResponse
+       case badRequest
+       case badDecode
+       case unknown(String)
 }
 
 final class NetworkService: NetworkProtocol {
-    init() {}
-    
-    func fetchData<T: Codable>(
+
+    private let decoder = JSONDecoder()
+
+    init() {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
+
+    // Этот метод получает данные из сети и декодирует их в указанный тип модели
+    func fetchData<T: Decodable>(
         url: URL,
-        headers: [String: String]? = nil,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkManagerError>) -> Void
     ) {
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        headers?.forEach { request.addValue($1, forHTTPHeaderField: $0) }
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                if error != nil {
-                    completion(.failure(.urlError))
-                    return
+        // Создаем задачу для получения данных
+        print("Fetching data from URL: \(url.absoluteString)")
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            // Проверяем, есть ли ошибка или данные
+            guard let data = data, error == nil else {
+                print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+                if let error = error as? NetworkManagerError {
+                    completion(.failure(error))
+                } else {
+                    completion(.failure(.unknown(error?.localizedDescription ?? "Unknown error")))
                 }
-                
-                guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
-                    completion(.failure(.urlError))
-                    return
-                }
-                
-                guard let data = data else {
-                    completion(.failure(.noData))
-                    return
-                }
-                
-                do {
-                    let decodedData = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(decodedData))
-                } catch {
-                    completion(.failure(.decodingError))
-                }
+                return
             }
-        }.resume()
+
+            // Пытаемся декодировать данные
+            do {
+                let decodedData = try self.decoder.decode(T.self, from: data)
+                completion(.success(decodedData))
+            } catch {
+                completion(.failure(error as! NetworkManagerError))
+            }
+        }
+        // Запускаем задачу
+        .resume()
     }
 }
+
+

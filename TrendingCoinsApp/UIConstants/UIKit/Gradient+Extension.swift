@@ -9,49 +9,42 @@ import UIKit
 
 extension UIView {
     func applyRadialGradients() {
-        // Удаляем все существующие слои градиента и затемнения
-        layer.sublayers?.filter { $0 is CAGradientLayer || $0.name == "overlayLayer" }.forEach { $0.removeFromSuperlayer() }
+            // Очистка предыдущих слоёв
+            layer.sublayers?.filter { $0 is CAGradientLayer || $0.name == "overlayLayer" }.forEach { $0.removeFromSuperlayer() }
 
-        // Создаем радиальные градиентные слои с указанными цветами и координатами
-        let gradientLayer1 = createRadialGradientLayer(
-            colors: [UIColor(red: 0.88, green: 0.2, blue: 0.99, alpha: 1).cgColor, UIColor.clear.cgColor],
-            center: CGPoint(x: bounds.maxX, y: bounds.maxY), // Позиция 1
-            radius: bounds.width * 1 // Радиус 1
-        )
+            // Добавление градиентных слоёв
+            addGradientLayer(colors: [UIColor(red: 0.88, green: 0.2, blue: 0.99, alpha: 1).cgColor, UIColor.clear.cgColor], center: CGPoint(x: bounds.maxX, y: bounds.maxY), radius: bounds.width)
+            addGradientLayer(colors: [UIColor(red: 0.99, green: 0.47, blue: 0.2, alpha: 1).cgColor, UIColor.clear.cgColor], center: CGPoint(x: bounds.minX, y: bounds.midY), radius: bounds.width)
+            addGradientLayer(colors: [UIColor(red: 0.2, green: 0.28, blue: 0.99, alpha: 1).cgColor, UIColor.clear.cgColor], center: CGPoint(x: bounds.maxX, y: bounds.minY), radius: bounds.width)
 
-        let gradientLayer2 = createRadialGradientLayer(
-            colors: [UIColor(red: 0.99, green: 0.47, blue: 0.2, alpha: 1).cgColor, UIColor.clear.cgColor],
-            center: CGPoint(x: bounds.minX, y: bounds.midY), // Позиция 2
-            radius: bounds.width * 1 // Радиус 2
-        )
+            // Добавление затемняющего слоя
+            let overlayLayer = CALayer()
+            overlayLayer.name = "overlayLayer"
+            overlayLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
+            overlayLayer.frame = bounds
+            layer.addSublayer(overlayLayer)
+        }
 
-        let gradientLayer3 = createRadialGradientLayer(
-            colors: [UIColor(red: 0.2, green: 0.28, blue: 0.99, alpha: 1).cgColor, UIColor.clear.cgColor],
-            center: CGPoint(x: bounds.size.width * -0.5, y: bounds.size.height * -0.5), // Позиция 3
-            radius: bounds.width * 5 // Радиус 3
-        )
+        private func addGradientLayer(colors: [CGColor], center: CGPoint, radius: CGFloat) {
+            let gradientLayer = createRadialGradientLayer(colors: colors, center: center, radius: radius)
+            layer.addSublayer(gradientLayer)
+        }
 
-        // Добавляем слои градиента в порядке наложения
-        layer.insertSublayer(gradientLayer3, at: 0) // Третий цвет
-        layer.insertSublayer(gradientLayer2, above: gradientLayer3) // Второй цвет
-        layer.insertSublayer(gradientLayer1, above: gradientLayer2) // Первый цвет
+        private func createRadialGradientLayer(colors: [CGColor], center: CGPoint, radius: CGFloat) -> CAGradientLayer {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.type = .radial
+            gradientLayer.colors = colors
+            gradientLayer.locations = [0, 1]
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+            gradientLayer.bounds = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
+            gradientLayer.position = center
+            gradientLayer.name = "gradientLayer"
 
-        // Добавляем затемняющий слой
-        let overlayLayer = CALayer()
-        overlayLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
-        overlayLayer.frame = bounds
-        layer.addSublayer(overlayLayer)
-    }
+            // Оптимизация производительности
+            gradientLayer.shouldRasterize = true
+            gradientLayer.rasterizationScale = UIScreen.main.scale
 
-    private func createRadialGradientLayer(colors: [CGColor], center: CGPoint, radius: CGFloat) -> CAGradientLayer {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.type = .radial
-        gradientLayer.colors = colors
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer.bounds = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
-        gradientLayer.position = center
-        return gradientLayer
-    }
+            return gradientLayer
+        }
 }

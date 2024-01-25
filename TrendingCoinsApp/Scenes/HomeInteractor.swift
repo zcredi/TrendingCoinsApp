@@ -17,14 +17,14 @@ final class HomeInteractor: HomeBusinessLogic {
     var worker: HomeWorkerProtocol?
 
     func fetchCryptoData() {
-        worker?.fetchData(headers: nil) { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.presenter?.presentFetchedCryptoData(data)
-            case .failure(let error):
-                self?.presenter?.presentError(error)
-            }
-        }
+        worker?.fetchData { [weak self] result in
+               switch result {
+               case .success(let data):
+                   self?.presenter?.presentFetchedCryptoData(data)
+               case .failure(let error):
+                   self?.presenter?.presentError(error)
+               }
+           }
     }
     
     func performSearch() {
