@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomePresentationLogic {
-    func presentFetchedCryptoData(_ data: CryptoData)
+    func presentFetchedCryptoData(_ data: CryptoData, iconUrls: [String: String])
     func presentError(_ error: NetworkManagerError)
 }
 
@@ -22,6 +22,7 @@ struct CryptoViewModel {
     let symbol: String
     let priceUsd: String
     let changePercent24Hr: String
+    let iconUrl: String?
 }
 
 struct HomeErrorViewModel {
@@ -29,16 +30,19 @@ struct HomeErrorViewModel {
 }
 
 final class HomePresenter: HomePresentationLogic {
+    
     weak var viewController: HomeDisplayLogic?
 
-    func presentFetchedCryptoData(_ data: CryptoData) {
+    func presentFetchedCryptoData(_ data: CryptoData, iconUrls: [String: String]) {
         let cryptoViewModels = data.data.map { crypto in
-            CryptoViewModel(
+            let iconUrl = iconUrls[crypto.symbol.lowercased()]
+            return CryptoViewModel(
                 id: crypto.rank,
                 name: crypto.name,
                 symbol: crypto.symbol,
                 priceUsd: formatDecimalString(crypto.priceUsd) ?? crypto.priceUsd + " USD",
-                changePercent24Hr: formatDecimalString(crypto.changePercent24Hr) ?? crypto.changePercent24Hr + "%"
+                changePercent24Hr: formatDecimalString(crypto.changePercent24Hr) ?? crypto.changePercent24Hr + "%",
+                iconUrl: iconUrl
             )
         }
         let viewModel = HomeCryptoDataViewModel(cryptos: cryptoViewModels)

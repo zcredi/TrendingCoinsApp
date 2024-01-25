@@ -35,30 +35,24 @@ final class NetworkService: NetworkProtocol {
         url: URL,
         completion: @escaping (Result<T, NetworkManagerError>) -> Void
     ) {
-        // Создаем задачу для получения данных
-        print("Fetching data from URL: \(url.absoluteString)")
         URLSession.shared.dataTask(with: url) { data, response, error in
-            // Проверяем, есть ли ошибка или данные
-            guard let data = data, error == nil else {
-                print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
-                if let error = error as? NetworkManagerError {
-                    completion(.failure(error))
-                } else {
-                    completion(.failure(.unknown(error?.localizedDescription ?? "Unknown error")))
-                }
+            // ...
+
+            guard let data = data else {
+                completion(.failure(.badData))
                 return
             }
 
-            // Пытаемся декодировать данные
+            print("Received data: \(String(decoding: data, as: UTF8.self))")
+
             do {
                 let decodedData = try self.decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
             } catch {
-                completion(.failure(error as! NetworkManagerError))
+                print("Decoding error: \(error)")
+                completion(.failure(.badDecode))
             }
-        }
-        // Запускаем задачу
-        .resume()
+        }.resume()
     }
 }
 
