@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8672F8B32B615B0A00E10391 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672F8B22B615B0A00E10391 /* CoinView.swift */; };
 		8672F8B72B615C3900E10391 /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */; };
+		867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1ACE2B6294160042CB79 /* Localizer.swift */; };
+		867C1AD12B6294290042CB79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 867C1AD02B6294290042CB79 /* Localizable.strings */; };
 		86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */; };
 		86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE912B60032B007EEA83 /* SceneDelegate.swift */; };
 		86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE982B60032C007EEA83 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		8672F8B22B615B0A00E10391 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
+		867C1ACE2B6294160042CB79 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		867C1AD02B6294290042CB79 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingCoinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A3BE912B60032B007EEA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		867C1ACD2B6293E80042CB79 /* CommonServices */ = {
+			isa = PBXGroup;
+			children = (
+				867C1ACE2B6294160042CB79 /* Localizer.swift */,
+				867C1AD02B6294290042CB79 /* Localizable.strings */,
+			);
+			path = CommonServices;
+			sourceTree = "<group>";
+		};
 		86A3BE832B60032B007EEA83 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 				86A3BEA52B60052D007EEA83 /* SceneFactory */,
 				86A3BEA92B600571007EEA83 /* NavigationModule */,
 				86A3BEA62B60054C007EEA83 /* Netwroks */,
+				867C1ACD2B6293E80042CB79 /* CommonServices */,
 				86A3BEA82B600565007EEA83 /* UIConstants */,
 				86A3BEA42B600523007EEA83 /* SupportingFiles */,
 			);
@@ -271,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867C1AD12B6294290042CB79 /* Localizable.strings in Resources */,
 				86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */,
 				86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */,
 				86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */,
@@ -300,6 +315,7 @@
 				86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */,
 				86A3BEC92B601E56007EEA83 /* UIColor+Extensions.swift in Sources */,
 				86A3BEC72B601E1B007EEA83 /* Gradient+Extension.swift in Sources */,
+				867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */,
 				86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

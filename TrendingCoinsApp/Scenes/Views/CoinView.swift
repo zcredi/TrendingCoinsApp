@@ -75,17 +75,18 @@ extension CoinView {
 //MARK: - UICollectionViewDataSource
 extension CoinView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return cryptos.count
-        }
+        return cryptos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.idCoinCell, for: indexPath) as? CoinCollectionViewCell else { return UICollectionViewCell() }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.idCoinCell, for: indexPath) as? CoinCollectionViewCell else { return UICollectionViewCell() }
-            
-            let crypto = cryptos[indexPath.row]
-            cell.configure(with: crypto)
-            
-            return cell
-        }
+        let crypto = cryptos[indexPath.row]
+        let localizer = Localizer()
+        cell.configure(with: crypto, localizer: localizer)
+        
+        return cell
+    }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout

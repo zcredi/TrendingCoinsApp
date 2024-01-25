@@ -34,7 +34,7 @@ final class HomePresenter: HomePresentationLogic {
     func presentFetchedCryptoData(_ data: CryptoData) {
         let cryptoViewModels = data.data.map { crypto in
             CryptoViewModel(
-                id: crypto.id,
+                id: crypto.rank,
                 name: crypto.name,
                 symbol: crypto.symbol,
                 priceUsd: formatDecimalString(crypto.priceUsd) ?? crypto.priceUsd + " USD",
