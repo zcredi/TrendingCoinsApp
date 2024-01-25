@@ -11,6 +11,7 @@
 		8672F8B72B615C3900E10391 /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */; };
 		867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1ACE2B6294160042CB79 /* Localizer.swift */; };
 		867C1AD12B6294290042CB79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 867C1AD02B6294290042CB79 /* Localizable.strings */; };
+		867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1AD22B62A4170042CB79 /* IconCoinModel.swift */; };
 		86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */; };
 		86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE912B60032B007EEA83 /* SceneDelegate.swift */; };
 		86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE982B60032C007EEA83 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
 		867C1ACE2B6294160042CB79 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		867C1AD02B6294290042CB79 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		867C1AD22B62A4170042CB79 /* IconCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCoinModel.swift; sourceTree = "<group>"; };
 		86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingCoinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A3BE912B60032B007EEA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				86A3BEB82B600BF0007EEA83 /* CoinModel.swift */,
+				867C1AD22B62A4170042CB79 /* IconCoinModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				8672F8B32B615B0A00E10391 /* CoinView.swift in Sources */,
 				86A3BEC52B601AD1007EEA83 /* CustomNavigationController.swift in Sources */,
 				86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */,
+				867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */,
 				86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */,
 				86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */,
 				86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */,

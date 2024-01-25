@@ -63,6 +63,38 @@ class CoinCollectionViewCell: UICollectionViewCell {
         coinSymbolLabel.text = viewModel.symbol
         priceUsdLabel.text = viewModel.priceUsd
         changePercent24HrLabel.text = viewModel.changePercent24Hr
+
+        if let iconUrl = viewModel.iconUrl {
+            DispatchQueue.global().async {
+                if let url = URL(string: iconUrl), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    let resizedImage = self.resizeImage(image, targetSize: CGSize(width: 48, height: 48))
+                    DispatchQueue.main.async {
+                        self.coinImageView.image = resizedImage
+                    }
+                }
+            }
+        }
+    }
+    
+    private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+
+        // Определяем какое соотношение меньше, чтобы масштабировать изображение пропорционально
+        let ratio = min(widthRatio, heightRatio)
+        let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+        // Масштабируем изображение
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage ?? image
     }
 }
 

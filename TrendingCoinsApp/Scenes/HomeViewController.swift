@@ -68,13 +68,11 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     // MARK: - HomeDisplayLogic
-        func displayFetchedCryptoData(_ viewModel: HomeCryptoDataViewModel) {
-            print("Crypto data for presentation: \(cryptoViewModels)")
-
-            cryptoViewModels = viewModel.cryptos
-            coinView.cryptos = cryptoViewModels
-            coinView.reloadData()
-        }
+    func displayFetchedCryptoData(_ viewModel: HomeCryptoDataViewModel) {
+        cryptoViewModels = viewModel.cryptos
+        coinView.cryptos = cryptoViewModels
+        coinView.reloadData()
+    }
     
     func displayError(_ viewModel: HomeErrorViewModel) {
         // Отображение ошибки

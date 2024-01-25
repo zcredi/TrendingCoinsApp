@@ -17,14 +17,25 @@ final class HomeInteractor: HomeBusinessLogic {
     var worker: HomeWorkerProtocol?
 
     func fetchCryptoData() {
-        worker?.fetchData { [weak self] result in
-               switch result {
-               case .success(let data):
-                   self?.presenter?.presentFetchedCryptoData(data)
-               case .failure(let error):
-                   self?.presenter?.presentError(error)
-               }
-           }
+        worker?.fetchData { [weak self] cryptoResult in
+            switch cryptoResult {
+            case .success(let cryptoData):
+                self?.worker?.fetchIcons { iconsResult in
+                    switch iconsResult {
+                    case .success(let icons):
+                        var iconUrls = [String: String]()
+                        for icon in icons {
+                            iconUrls[icon.assetId.lowercased()] = icon.url
+                        }
+                        self?.presenter?.presentFetchedCryptoData(cryptoData, iconUrls: iconUrls)
+                    case .failure(let error):
+                        self?.presenter?.presentError(error)
+                    }
+                }
+            case .failure(let error):
+                self?.presenter?.presentError(error)
+            }
+        }
     }
     
     func performSearch() {
