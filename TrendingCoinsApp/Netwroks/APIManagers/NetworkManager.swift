@@ -43,13 +43,10 @@ final class NetworkService: NetworkProtocol {
                 return
             }
 
-            print("Received data: \(String(decoding: data, as: UTF8.self))")
-
             do {
                 let decodedData = try self.decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
             } catch {
-                print("Decoding error: \(error)")
                 completion(.failure(.badDecode))
             }
         }.resume()
