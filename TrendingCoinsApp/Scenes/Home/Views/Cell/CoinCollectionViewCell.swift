@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoinCollectionViewCell: UICollectionViewCell {
+final class CoinCollectionViewCell: UICollectionViewCell {
     enum Constants {
         static let coinImageViewTopSpacing: CGFloat = 12.0
         static let coinImageViewLeadingSpacing: CGFloat = 20.0
@@ -20,6 +20,8 @@ class CoinCollectionViewCell: UICollectionViewCell {
         static let changePercent24HrLabelTopSpacing: CGFloat = 2.0
         static let changePercent24HrLabelTrailingSpacing: CGFloat = 20.0
     }
+    
+    var cryptoViewModel: CryptoViewModel?
     
     //MARK: - UI
     
@@ -59,12 +61,13 @@ class CoinCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with viewModel: CryptoViewModel, localizer: Localizing) {
+        self.cryptoViewModel = viewModel
         coinNameLabel.text = localizer.localizedString(for: viewModel.id)
         coinSymbolLabel.text = viewModel.symbol
         priceUsdLabel.text = viewModel.priceUsd
         changePercent24HrLabel.text = viewModel.changePercent24Hr
         updateChangePercentLabelColor()
-
+        
         if let iconUrl = viewModel.iconUrl {
             DispatchQueue.global().async {
                 if let url = URL(string: iconUrl), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
@@ -79,22 +82,22 @@ class CoinCollectionViewCell: UICollectionViewCell {
     
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
-
+        
         let widthRatio  = targetSize.width  / size.width
         let heightRatio = targetSize.height / size.height
-
+        
         // Определяем какое соотношение меньше, чтобы масштабировать изображение пропорционально
         let ratio = min(widthRatio, heightRatio)
         let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
-
+        
         let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-
+        
         // Масштабируем изображение
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage ?? image
     }
     

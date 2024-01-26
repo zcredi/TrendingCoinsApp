@@ -14,10 +14,16 @@ extension UIFont {
     }
     
     //Regular
+    static func SFProRegular12() -> UIFont? {
+        return UIFont.init(name: "SFPro-Regular", size: 12)
+    }
     static func SFProRegular14() -> UIFont? {
         return UIFont.init(name: "SFPro-Regular", size: 14)
     }
     static func SFProRegular16() -> UIFont? {
         return UIFont.init(name: "SFPro-Regular", size: 16)
+    }
+    static func SFProRegular24() -> UIFont? {
+        return UIFont.init(name: "SFPro-Regular", size: 24)
     }
 }
