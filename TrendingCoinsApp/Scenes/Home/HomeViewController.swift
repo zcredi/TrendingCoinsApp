@@ -23,15 +23,18 @@ final class HomeViewController: UIViewController, HomeDisplayLogic, UISearchBarD
     
     private var cryptoViewModels: [CryptoViewModel] = []
     
+    //MARK: - UI
+    private let searchView = UIView(cornerRadius: 12)
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        coinView.delegate = self
         view.applyRadialGradients()
         setupNavigationBar()
         setupViews()
         setConstraints()
         fetchCryptoData()
-        setupSearchBar()
     }
     
     private func setupViews() {
@@ -56,48 +59,53 @@ final class HomeViewController: UIViewController, HomeDisplayLogic, UISearchBarD
     
     @objc private func searchButtonTapped() {
         if navigationItem.titleView == searchBar {
-               hideSearchBar()
-           } else {
-               setupSearchBar()
-           }
+            hideSearchBar()
+        } else {
+            setupSearchBar()
+        }
     }
     
     private func hideSearchBar() {
         setupNavigationBar()
-           navigationItem.titleView = nil
-           searchBar.text = ""
-           searchBar.resignFirstResponder()
-           fetchCryptoData()
-       }
+        navigationItem.titleView = nil
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        fetchCryptoData()
+    }
     
     func fetchCryptoData() {
         interactor?.fetchCryptoData()
+        coinView.endRefreshing()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            hideSearchBar()
-        }
+        hideSearchBar()
+    }
     
     private func setupSearchBar() {
         searchBar.delegate = self
-            searchBar.placeholder = "Search"
-            searchBar.sizeToFit()
-            searchBar.isTranslucent = false
-            searchBar.setShowsCancelButton(true, animated: true)
-
-            if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-                textField.textColor = .white
-                textField.backgroundColor = .darkGray
-                textField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-                textField.tintColor = .white
-            }
-
-            // Скрыть заголовок и кнопки навигационной панели, когда появляется поиск
-            navigationItem.titleView = searchBar
-            navigationItem.leftBarButtonItem = nil
-            navigationItem.rightBarButtonItem = nil
-            searchBar.showsCancelButton = true
-            searchBar.becomeFirstResponder()
+        searchBar.placeholder = "Search"
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.setShowsCancelButton(true, animated: true)
+        
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+            textField.textColor = .white
+            textField.backgroundColor = .darkGray
+            textField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            textField.tintColor = .white
+        }
+        
+        // Скрыть заголовок и кнопки навигационной панели, когда появляется поиск
+        navigationItem.titleView = searchBar
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = nil
+        searchBar.showsCancelButton = true
+        searchBar.becomeFirstResponder()
+    }
+    
+    func refreshDataForCoinView(_ coinView: CoinView) {
+        fetchCryptoData()
     }
     
     // MARK: - HomeDisplayLogic
@@ -126,5 +134,14 @@ extension HomeViewController {
             coinView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             coinView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+extension HomeViewController: CoinViewDelegate {
+    
+    func coinView(_ coinView: CoinView, didSelectCryptoViewModel viewModel: CryptoViewModel) {
+        let detailVC = DetailViewController()
+        detailVC.configure(with: viewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

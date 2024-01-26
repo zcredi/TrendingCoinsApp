@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol CoinViewDelegate: AnyObject {
+    func coinView(_ coinView: CoinView, didSelectCryptoViewModel viewModel: CryptoViewModel)
+    func refreshDataForCoinView(_ coinView: CoinView)
+}
+
 class CoinView: UIView {
     enum Constants {
         static let idCoinCell: String = "idCoinCell"
     }
+    
+    weak var delegate: CoinViewDelegate?
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - UI
     private lazy var collectionView: UICollectionView = {
@@ -36,6 +44,7 @@ class CoinView: UIView {
         setupViews()
         setConstraints()
         setDelegates()
+        addRefreshControl()
     }
     
     required init?(coder: NSCoder) {
@@ -103,6 +112,24 @@ extension CoinView: UICollectionViewDelegateFlowLayout {
 
 extension CoinView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        guard let cryptoViewModel = cryptos[safe: indexPath.row] else { return }
+        _ = Localizer().localizedString(for: cryptoViewModel.id)
+        delegate?.coinView(self, didSelectCryptoViewModel: cryptoViewModel)
+    }
+}
+
+//MARK: - RefreshControl
+extension CoinView {
+    private func addRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshData() {
+        delegate?.refreshDataForCoinView(self)
+    }
+    
+    func endRefreshing() {
+        refreshControl.endRefreshing()
     }
 }

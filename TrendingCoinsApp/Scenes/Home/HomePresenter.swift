@@ -22,6 +22,9 @@ struct CryptoViewModel {
     let symbol: String
     let priceUsd: String
     let changePercent24Hr: String
+    let supply: String
+    let marketCapUsd: String
+    let volumeUsd24Hr: String
     let iconUrl: String?
 }
 
@@ -32,7 +35,7 @@ struct HomeErrorViewModel {
 final class HomePresenter: HomePresentationLogic {
     
     weak var viewController: HomeDisplayLogic?
-
+    
     func presentFetchedCryptoData(_ data: CryptoData, iconUrls: [String: String]) {
         let cryptoViewModels = data.data.map { crypto in
             let iconUrl = iconUrls[crypto.symbol.lowercased()]
@@ -40,15 +43,18 @@ final class HomePresenter: HomePresentationLogic {
                 id: crypto.rank,
                 name: crypto.name,
                 symbol: crypto.symbol,
-                priceUsd: formatDecimalString(crypto.priceUsd) ?? crypto.priceUsd + " USD",
+                priceUsd: "$ " + (formatDecimalString(crypto.priceUsd) ?? crypto.priceUsd + " USD") ,
                 changePercent24Hr: formatDecimalString(crypto.changePercent24Hr) ?? crypto.changePercent24Hr + "%",
+                supply: crypto.supply,
+                marketCapUsd: crypto.marketCapUsd,
+                volumeUsd24Hr: crypto.volumeUsd24Hr,
                 iconUrl: iconUrl
             )
         }
         let viewModel = HomeCryptoDataViewModel(cryptos: cryptoViewModels)
         viewController?.displayFetchedCryptoData(viewModel)
     }
-
+    
     func presentError(_ error: NetworkManagerError) {
         let viewModel = HomeErrorViewModel(message: error.localizedDescription)
         viewController?.displayError(viewModel)

@@ -16,20 +16,20 @@ protocol NetworkProtocol {
 
 enum NetworkManagerError: Error {
     case badData
-       case badResponse
-       case badRequest
-       case badDecode
-       case unknown(String)
+    case badResponse
+    case badRequest
+    case badDecode
+    case unknown(String)
 }
 
 final class NetworkService: NetworkProtocol {
-
+    
     private let decoder = JSONDecoder()
-
+    
     init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
-
+    
     // Этот метод получает данные из сети и декодирует их в указанный тип модели
     func fetchData<T: Decodable>(
         url: URL,
@@ -37,12 +37,12 @@ final class NetworkService: NetworkProtocol {
     ) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             // ...
-
+            
             guard let data = data else {
                 completion(.failure(.badData))
                 return
             }
-
+            
             do {
                 let decodedData = try self.decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
