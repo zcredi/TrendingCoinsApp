@@ -63,6 +63,7 @@ class CoinCollectionViewCell: UICollectionViewCell {
         coinSymbolLabel.text = viewModel.symbol
         priceUsdLabel.text = viewModel.priceUsd
         changePercent24HrLabel.text = viewModel.changePercent24Hr
+        updateChangePercentLabelColor()
 
         if let iconUrl = viewModel.iconUrl {
             DispatchQueue.global().async {
@@ -95,6 +96,26 @@ class CoinCollectionViewCell: UICollectionViewCell {
         UIGraphicsEndImageContext()
 
         return newImage ?? image
+    }
+    
+    private func updateChangePercentLabelColor() {
+        if let changePercentText = changePercent24HrLabel.text,
+           let changePercent = Double(changePercentText.replacingOccurrences(of: "%", with: "")) {
+            
+            let formattedText: String
+            if changePercent > 0 {
+                formattedText = String(format: "+%.2f%%", changePercent)
+                changePercent24HrLabel.textColor = .green
+            } else if changePercent < 0 {
+                formattedText = String(format: "%.2f%%", changePercent)
+                changePercent24HrLabel.textColor = .red
+            } else {
+                formattedText = "0.00%"
+                changePercent24HrLabel.textColor = .gray
+            }
+            
+            changePercent24HrLabel.text = formattedText
+        }
     }
 }
 
