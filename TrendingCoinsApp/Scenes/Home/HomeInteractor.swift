@@ -39,24 +39,25 @@ final class HomeInteractor: HomeBusinessLogic {
     }
     
     func performSearch(with searchTerm: String) {
-        if searchTerm.isEmpty {
-            fetchCryptoData() // Если строка поиска пуста, загрузить исходные данные.
-        } else {
-            worker?.searchForCrypto(searchTerm: searchTerm) { [weak self] result in
-                switch result {
-                case .success(let searchResults):
-                    var iconUrls = [String: String]()
-                    for crypto in searchResults.data {
-                        if let iconUrl = self?.worker?.iconUrl(forAssetId: crypto.symbol) {
-                            iconUrls[crypto.symbol.lowercased()] = iconUrl
-                        }
+        if searchTerm.isEmpty { return }
+        worker?.searchForCrypto(searchTerm: searchTerm) { [weak self] result in
+            switch result {
+            case .success(let searchResults):
+                var iconUrls = [String: String]()
+                for crypto in searchResults.data {
+                    if let iconUrl = self?.worker?.iconUrl(forAssetId: crypto.symbol) {
+                        iconUrls[crypto.symbol.lowercased()] = iconUrl
                     }
-                    self?.presenter?.presentFetchedCryptoData(searchResults, iconUrls: iconUrls)
-                case .failure(let error):
-                    self?.presenter?.presentError(error)
                 }
+                self?.presenter?.presentFetchedCryptoData(searchResults, iconUrls: iconUrls)
+            case .failure(let error):
+                self?.presenter?.presentError(error)
             }
         }
+    }
+    
+    func foo(_ searchResults: [CryptoCurrency]) -> [String: String] {
+        searchResults.reduce(into: [String: String](), { $0[$1.symbol.lowercased()] = worker?.iconUrl(forAssetId: $1.symbol) })
     }
     
     private func presentSearchResults(_ searchResults: CryptoData) {

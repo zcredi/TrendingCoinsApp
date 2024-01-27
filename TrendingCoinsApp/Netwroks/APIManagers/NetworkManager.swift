@@ -30,14 +30,11 @@ final class NetworkService: NetworkProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    // Этот метод получает данные из сети и декодирует их в указанный тип модели
     func fetchData<T: Decodable>(
         url: URL,
         completion: @escaping (Result<T, NetworkManagerError>) -> Void
     ) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            // ...
-            
             guard let data = data else {
                 completion(.failure(.badData))
                 return
@@ -52,5 +49,3 @@ final class NetworkService: NetworkProtocol {
         }.resume()
     }
 }
-
-
