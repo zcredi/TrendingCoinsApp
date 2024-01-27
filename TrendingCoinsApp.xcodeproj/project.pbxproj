@@ -7,23 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8672F8B32B615B0A00E10391 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672F8B22B615B0A00E10391 /* CoinView.swift */; };
+		8672F8B72B615C3900E10391 /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */; };
+		867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1ACE2B6294160042CB79 /* Localizer.swift */; };
+		867C1AD12B6294290042CB79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 867C1AD02B6294290042CB79 /* Localizable.strings */; };
+		867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1AD22B62A4170042CB79 /* IconCoinModel.swift */; };
+		867C1AD72B62F6390042CB79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1AD62B62F6390042CB79 /* DetailViewController.swift */; };
+		8695D5832B63CE6700E5F0B1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5822B63CE6700E5F0B1 /* DetailView.swift */; };
+		8695D5852B63CE8E00E5F0B1 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */; };
+		8695D5882B6417A000E5F0B1 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5872B6417A000E5F0B1 /* Array + Extension.swift */; };
+		8695D58A2B64358200E5F0B1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5892B64358200E5F0B1 /* UIView+Extension.swift */; };
+		869B8E872B6550EC005ACDC4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869B8E862B6550EC005ACDC4 /* HomeRouter.swift */; };
+		869B8E8A2B655DB9005ACDC4 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 869B8E892B655DB9005ACDC4 /* Lottie */; };
 		86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */; };
 		86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE912B60032B007EEA83 /* SceneDelegate.swift */; };
-		86A3BE942B60032B007EEA83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE932B60032B007EEA83 /* ViewController.swift */; };
-		86A3BE972B60032B007EEA83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE952B60032B007EEA83 /* Main.storyboard */; };
 		86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE982B60032C007EEA83 /* Assets.xcassets */; };
 		86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */; };
+		86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */; };
+		86A3BEAE2B60078C007EEA83 /* SFPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */; };
+		86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */; };
+		86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */; };
+		86A3BEB72B600A4F007EEA83 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB62B600A4F007EEA83 /* NetworkManager.swift */; };
+		86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEB82B600BF0007EEA83 /* CoinModel.swift */; };
+		86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */; };
+		86A3BEBD2B6013D2007EEA83 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */; };
+		86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */; };
+		86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */; };
+		86A3BEC32B6013F2007EEA83 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */; };
+		86A3BEC72B601E1B007EEA83 /* Gradient+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC62B601E1B007EEA83 /* Gradient+Extension.swift */; };
+		86A3BEC92B601E56007EEA83 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BEC82B601E56007EEA83 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8672F8B22B615B0A00E10391 /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
+		867C1ACE2B6294160042CB79 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		867C1AD02B6294290042CB79 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		867C1AD22B62A4170042CB79 /* IconCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCoinModel.swift; sourceTree = "<group>"; };
+		867C1AD62B62F6390042CB79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8695D5822B63CE6700E5F0B1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		8695D5872B6417A000E5F0B1 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
+		8695D5892B64358200E5F0B1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		869B8E862B6550EC005ACDC4 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingCoinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A3BE912B60032B007EEA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86A3BE932B60032B007EEA83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		86A3BE962B60032B007EEA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86A3BE982B60032C007EEA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A3BE9B2B60032C007EEA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86A3BE9D2B60032C007EEA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFPro-Regular.otf"; path = "../../../../../San Francisco Pro Display/SFPro-Regular.otf"; sourceTree = "<group>"; };
+		86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFPro-Semibold.otf"; path = "../../../../../San Francisco Pro Display/SFPro-Semibold.otf"; sourceTree = "<group>"; };
+		86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		86A3BEB62B600A4F007EEA83 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86A3BEB82B600BF0007EEA83 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		86A3BEC62B601E1B007EEA83 /* Gradient+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Extension.swift"; sourceTree = "<group>"; };
+		86A3BEC82B601E56007EEA83 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +76,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869B8E8A2B655DB9005ACDC4 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8672F8B42B615B0F00E10391 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8672F8B52B615C2700E10391 /* Cells */,
+				8672F8B22B615B0A00E10391 /* CoinView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8672F8B52B615C2700E10391 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		867C1ACD2B6293E80042CB79 /* CommonServices */ = {
+			isa = PBXGroup;
+			children = (
+				867C1ACE2B6294160042CB79 /* Localizer.swift */,
+				867C1AD02B6294290042CB79 /* Localizable.strings */,
+			);
+			path = CommonServices;
+			sourceTree = "<group>";
+		};
+		867C1AD42B62F5DF0042CB79 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8672F8B42B615B0F00E10391 /* Views */,
+				86A3BEBE2B6013DC007EEA83 /* HomePresenter.swift */,
+				86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */,
+				86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */,
+				86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */,
+				869B8E862B6550EC005ACDC4 /* HomeRouter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		867C1AD52B62F60A0042CB79 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				8695D5812B63CE5900E5F0B1 /* Views */,
+				867C1AD62B62F6390042CB79 /* DetailViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		8695D5812B63CE5900E5F0B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8695D5822B63CE6700E5F0B1 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		86A3BE832B60032B007EEA83 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +158,109 @@
 		86A3BE8E2B60032B007EEA83 /* TrendingCoinsApp */ = {
 			isa = PBXGroup;
 			children = (
-				86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */,
-				86A3BE912B60032B007EEA83 /* SceneDelegate.swift */,
-				86A3BE932B60032B007EEA83 /* ViewController.swift */,
-				86A3BE952B60032B007EEA83 /* Main.storyboard */,
+				86A3BEA72B600557007EEA83 /* Application */,
+				86A3BEA32B600518007EEA83 /* Scenes */,
+				86A3BEA52B60052D007EEA83 /* SceneFactory */,
+				86A3BEA62B60054C007EEA83 /* Netwroks */,
+				867C1ACD2B6293E80042CB79 /* CommonServices */,
+				86A3BEA82B600565007EEA83 /* UIConstants */,
+				86A3BEA42B600523007EEA83 /* SupportingFiles */,
+			);
+			path = TrendingCoinsApp;
+			sourceTree = "<group>";
+		};
+		86A3BEA32B600518007EEA83 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				867C1AD42B62F5DF0042CB79 /* Home */,
+				867C1AD52B62F60A0042CB79 /* Info */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		86A3BEA42B600523007EEA83 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEAA2B600780007EEA83 /* Fonts */,
 				86A3BE982B60032C007EEA83 /* Assets.xcassets */,
 				86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */,
 				86A3BE9D2B60032C007EEA83 /* Info.plist */,
 			);
-			path = TrendingCoinsApp;
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		86A3BEA52B60052D007EEA83 /* SceneFactory */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEBA2B6013B8007EEA83 /* SceneFactory.swift */,
+			);
+			path = SceneFactory;
+			sourceTree = "<group>";
+		};
+		86A3BEA62B60054C007EEA83 /* Netwroks */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB42B600A2C007EEA83 /* APIManagers */,
+				86A3BEB52B600A34007EEA83 /* APIModels */,
+			);
+			path = Netwroks;
+			sourceTree = "<group>";
+		};
+		86A3BEA72B600557007EEA83 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */,
+				86A3BE912B60032B007EEA83 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		86A3BEA82B600565007EEA83 /* UIConstants */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB12B6008B1007EEA83 /* UIKit */,
+				86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */,
+				86A3BEC82B601E56007EEA83 /* UIColor+Extensions.swift */,
+			);
+			path = UIConstants;
+			sourceTree = "<group>";
+		};
+		86A3BEAA2B600780007EEA83 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEAB2B60078C007EEA83 /* SFPro-Regular.otf */,
+				86A3BEAC2B60078C007EEA83 /* SFPro-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		86A3BEB12B6008B1007EEA83 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB22B6008C2007EEA83 /* UILabel+Extension.swift */,
+				86A3BEC62B601E1B007EEA83 /* Gradient+Extension.swift */,
+				8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */,
+				8695D5872B6417A000E5F0B1 /* Array + Extension.swift */,
+				8695D5892B64358200E5F0B1 /* UIView+Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		86A3BEB42B600A2C007EEA83 /* APIManagers */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB62B600A4F007EEA83 /* NetworkManager.swift */,
+			);
+			path = APIManagers;
+			sourceTree = "<group>";
+		};
+		86A3BEB52B600A34007EEA83 /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+				86A3BEB82B600BF0007EEA83 /* CoinModel.swift */,
+				867C1AD22B62A4170042CB79 /* IconCoinModel.swift */,
+			);
+			path = APIModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +279,9 @@
 			dependencies = (
 			);
 			name = TrendingCoinsApp;
+			packageProductDependencies = (
+				869B8E892B655DB9005ACDC4 /* Lottie */,
+			);
 			productName = TrendingCoinsApp;
 			productReference = 86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +310,9 @@
 				Base,
 			);
 			mainGroup = 86A3BE832B60032B007EEA83;
+			packageReferences = (
+				869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 86A3BE8D2B60032B007EEA83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +327,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867C1AD12B6294290042CB79 /* Localizable.strings in Resources */,
 				86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */,
+				86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */,
 				86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */,
-				86A3BE972B60032B007EEA83 /* Main.storyboard in Resources */,
+				86A3BEAE2B60078C007EEA83 /* SFPro-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +342,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A3BE942B60032B007EEA83 /* ViewController.swift in Sources */,
+				8672F8B32B615B0A00E10391 /* CoinView.swift in Sources */,
+				86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */,
+				867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */,
 				86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */,
+				86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */,
+				86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */,
+				86A3BEC32B6013F2007EEA83 /* HomeWorker.swift in Sources */,
+				8672F8B72B615C3900E10391 /* CoinCollectionViewCell.swift in Sources */,
+				86A3BEBD2B6013D2007EEA83 /* HomeViewController.swift in Sources */,
+				8695D58A2B64358200E5F0B1 /* UIView+Extension.swift in Sources */,
+				86A3BEB72B600A4F007EEA83 /* NetworkManager.swift in Sources */,
+				869B8E872B6550EC005ACDC4 /* HomeRouter.swift in Sources */,
+				86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */,
+				86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */,
+				8695D5832B63CE6700E5F0B1 /* DetailView.swift in Sources */,
+				86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */,
+				8695D5852B63CE8E00E5F0B1 /* UIStackView + Extension.swift in Sources */,
+				86A3BEC92B601E56007EEA83 /* UIColor+Extensions.swift in Sources */,
+				86A3BEC72B601E1B007EEA83 /* Gradient+Extension.swift in Sources */,
+				867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */,
+				8695D5882B6417A000E5F0B1 /* Array + Extension.swift in Sources */,
 				86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */,
+				867C1AD72B62F6390042CB79 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		86A3BE952B60032B007EEA83 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86A3BE962B60032B007EEA83 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,12 +505,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TrendingCoinsApp/Info.plist;
+				INFOPLIST_FILE = TrendingCoinsApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +518,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zcredi.TrendingCoinsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +536,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT2PBNQ85;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TrendingCoinsApp/Info.plist;
+				INFOPLIST_FILE = TrendingCoinsApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +549,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zcredi.TrendingCoinsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		869B8E892B655DB9005ACDC4 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86A3BE842B60032B007EEA83 /* Project object */;
 }
