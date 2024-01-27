@@ -9,7 +9,11 @@ import UIKit
 
 final class DetailView: UIView {
     enum Constants {
-        
+        static let priceAndChangeStackViewTopSpacing: CGFloat = 20
+        static let priceAndChangeStackViewLeadingSpacing: CGFloat = 20
+        static let priceAndChangeStackViewTrailingSpacing: CGFloat = 98
+        static let threeStackViewTopSpacing: CGFloat = 20
+        static let threeStackViewSideSpacing: CGFloat = 20
     }
     
     private var viewModel: CryptoViewModel?
@@ -51,18 +55,15 @@ final class DetailView: UIView {
     }
     
     private func updateUI() {
-        priceLabel.text = formatLargeNumber(self.viewModel?.priceUsd ?? "")
-        marketCapUsdLabel.text = formatLargeNumber(self.viewModel?.marketCapUsd ?? "")
-        supplyUsdLabel.text = formatLargeNumber(self.viewModel?.supply ?? "")
-        volumeUsdLabel.text = formatLargeNumber(self.viewModel?.volumeUsd24Hr ?? "")
+        guard let viewModel = viewModel else { return }
         
-        if let changePercent = Double(self.viewModel?.changePercent24Hr ?? "") {
-            changeLabel.text = formatChangePercentage(changePercent)
-            changeLabel.textColor = colorForChangePercentage(changePercent)
-        } else {
-            changeLabel.text = "0.00%"
-            changeLabel.textColor = .gray
-        }
+        priceLabel.text = formatLargeNumber(viewModel.priceUsd)
+        changeLabel.text = formatLargeNumber(viewModel.changePercent24Hr)
+        changeLabel.textColor = viewModel.changePercent24HrColor
+        
+        marketCapUsdLabel.text = formatLargeNumber(viewModel.marketCapUsd)
+        supplyUsdLabel.text = formatLargeNumber(viewModel.supply)
+        volumeUsdLabel.text = formatLargeNumber(viewModel.volumeUsd24Hr)
     }
     
     private func setupViews() {
@@ -113,20 +114,17 @@ final class DetailView: UIView {
 extension DetailView {
     private func setConstraints() {
         priceAndChangeStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            priceAndChangeStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            priceAndChangeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            priceAndChangeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -98)
-        ])
-        
         threeStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            threeStackView.topAnchor.constraint(equalTo: priceAndChangeStackView.bottomAnchor, constant: 20),
-            threeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            threeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            priceAndChangeStackView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.priceAndChangeStackViewTopSpacing),
+            priceAndChangeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.priceAndChangeStackViewLeadingSpacing),
+            priceAndChangeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.priceAndChangeStackViewTrailingSpacing),
+            
+            threeStackView.topAnchor.constraint(equalTo: priceAndChangeStackView.bottomAnchor, constant: Constants.threeStackViewTopSpacing),
+            threeStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.threeStackViewSideSpacing),
+            threeStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.threeStackViewSideSpacing)
         ])
         
-        // Activate constraints for the dividers
         if let divider1 = threeStackView.arrangedSubviews[safe: 1],
            let divider2 = threeStackView.arrangedSubviews[safe: 3] {
             NSLayoutConstraint.activate([
@@ -139,13 +137,15 @@ extension DetailView {
     }
 }
 
+//MARK: - Collection
 private extension Collection {
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
-extension DetailView {
+//MARK: - formatLargeNumber
+private extension DetailView {
     func formatLargeNumber(_ numberString: String) -> String {
         guard let number = Double(numberString) else { return numberString }
         
@@ -162,22 +162,6 @@ extension DetailView {
             return String(format: "$%.2fk", number / thousand)
         default:
             return String(format: "$%.2f", number)
-        }
-    }
-}
-
-extension DetailView {
-    private func formatChangePercentage(_ changePercent: Double) -> String {
-        return String(format: changePercent > 0 ? "+%.2f%%" : "%.2f%%", changePercent)
-    }
-    
-    private func colorForChangePercentage(_ changePercent: Double) -> UIColor {
-        if changePercent > 0 {
-            return .green
-        } else if changePercent < 0 {
-            return .red
-        } else {
-            return .gray
         }
     }
 }

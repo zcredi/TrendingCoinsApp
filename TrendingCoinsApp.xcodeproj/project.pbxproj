@@ -17,6 +17,8 @@
 		8695D5852B63CE8E00E5F0B1 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */; };
 		8695D5882B6417A000E5F0B1 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5872B6417A000E5F0B1 /* Array + Extension.swift */; };
 		8695D58A2B64358200E5F0B1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5892B64358200E5F0B1 /* UIView+Extension.swift */; };
+		869B8E872B6550EC005ACDC4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869B8E862B6550EC005ACDC4 /* HomeRouter.swift */; };
+		869B8E8A2B655DB9005ACDC4 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 869B8E892B655DB9005ACDC4 /* Lottie */; };
 		86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */; };
 		86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3BE912B60032B007EEA83 /* SceneDelegate.swift */; };
 		86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A3BE982B60032C007EEA83 /* Assets.xcassets */; };
@@ -47,6 +49,7 @@
 		8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		8695D5872B6417A000E5F0B1 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
 		8695D5892B64358200E5F0B1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		869B8E862B6550EC005ACDC4 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingCoinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A3BE8F2B60032B007EEA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A3BE912B60032B007EEA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869B8E8A2B655DB9005ACDC4 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,18 +86,18 @@
 		8672F8B42B615B0F00E10391 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8672F8B52B615C2700E10391 /* Cell */,
+				8672F8B52B615C2700E10391 /* Cells */,
 				8672F8B22B615B0A00E10391 /* CoinView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8672F8B52B615C2700E10391 /* Cell */ = {
+		8672F8B52B615C2700E10391 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				8672F8B62B615C3900E10391 /* CoinCollectionViewCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		867C1ACD2B6293E80042CB79 /* CommonServices */ = {
@@ -113,6 +117,7 @@
 				86A3BEBC2B6013D2007EEA83 /* HomeViewController.swift */,
 				86A3BEC02B6013E8007EEA83 /* HomeInteractor.swift */,
 				86A3BEC22B6013F2007EEA83 /* HomeWorker.swift */,
+				869B8E862B6550EC005ACDC4 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -274,6 +279,9 @@
 			dependencies = (
 			);
 			name = TrendingCoinsApp;
+			packageProductDependencies = (
+				869B8E892B655DB9005ACDC4 /* Lottie */,
+			);
 			productName = TrendingCoinsApp;
 			productReference = 86A3BE8C2B60032B007EEA83 /* TrendingCoinsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +310,9 @@
 				Base,
 			);
 			mainGroup = 86A3BE832B60032B007EEA83;
+			packageReferences = (
+				869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 86A3BE8D2B60032B007EEA83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -342,6 +353,7 @@
 				86A3BEBD2B6013D2007EEA83 /* HomeViewController.swift in Sources */,
 				8695D58A2B64358200E5F0B1 /* UIView+Extension.swift in Sources */,
 				86A3BEB72B600A4F007EEA83 /* NetworkManager.swift in Sources */,
+				869B8E872B6550EC005ACDC4 /* HomeRouter.swift in Sources */,
 				86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */,
 				86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */,
 				8695D5832B63CE6700E5F0B1 /* DetailView.swift in Sources */,
@@ -568,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		869B8E892B655DB9005ACDC4 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 869B8E882B655DB9005ACDC4 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86A3BE842B60032B007EEA83 /* Project object */;
 }

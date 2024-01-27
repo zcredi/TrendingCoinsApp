@@ -22,6 +22,7 @@ final class CoinCollectionViewCell: UICollectionViewCell {
     }
     
     var cryptoViewModel: CryptoViewModel?
+    private var cellId: UUID?
     
     //MARK: - UI
     
@@ -38,7 +39,7 @@ final class CoinCollectionViewCell: UICollectionViewCell {
     
     private let priceUsdLabel = UILabel(text: "$ 22 678.48", font: .SFProRegular16(), textColor: .white)
     
-    private let changePercent24HrLabel = UILabel(text: "+ 4.32%", font: .SFProRegular14(), textColor: .green)
+    public let changePercent24HrLabel = UILabel(text: "+ 4.32%", font: .SFProRegular14(), textColor: .green)
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -52,6 +53,21 @@ final class CoinCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        super.prepareForReuse()
+        self.cellId = nil
+        self.coinImageView.image = nil
+    }
+    
+    override func willDisplay() {
+        
+    }
+    
+    override func didEndDisplay() {
+        
+    }
+    
     private func setupViews() {
         addSubview(coinImageView)
         addSubview(coinNameLabel)
@@ -62,37 +78,48 @@ final class CoinCollectionViewCell: UICollectionViewCell {
     
     func configure(with viewModel: CryptoViewModel, localizer: Localizing) {
         self.cryptoViewModel = viewModel
-        coinNameLabel.text = localizer.localizedString(for: viewModel.id)
-        coinSymbolLabel.text = viewModel.symbol
-        priceUsdLabel.text = viewModel.priceUsd
-        changePercent24HrLabel.text = viewModel.changePercent24Hr
-        updateChangePercentLabelColor()
+            coinNameLabel.text = localizer.localizedString(for: viewModel.id)
+            coinSymbolLabel.text = viewModel.symbol
+            priceUsdLabel.text = viewModel.priceUsd
+            changePercent24HrLabel.text = viewModel.changePercent24Hr
+            changePercent24HrLabel.textColor = viewModel.changePercent24HrColor
+        
+        let currentCellId = UUID()
+        self.cellId = currentCellId
         
         if let iconUrl = viewModel.iconUrl {
             DispatchQueue.global().async {
-                if let url = URL(string: iconUrl), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                    let resizedImage = self.resizeImage(image, targetSize: CGSize(width: 48, height: 48))
-                    DispatchQueue.main.async {
-                        self.coinImageView.image = resizedImage
+                let result = Result {
+                    try URL(string: iconUrl)
+                        .flatMap { try Data(contentsOf: $0) }
+                        .flatMap(UIImage.init)
+                        .flatMap { self.resizeImage($0, targetSize: CGSize(width: 48, height: 48)) }
+                }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self, self.cellId == currentCellId else { return }
+                    switch result {
+                    case .success(let image):
+                        self.coinImageView.image = image
+                    case .failure(let error):
+                        print(error)
                     }
                 }
             }
         }
     }
     
+    //MARK: - Метод преобразования картинки в нужный размер
     private func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
         
         let widthRatio  = targetSize.width  / size.width
         let heightRatio = targetSize.height / size.height
         
-        // Определяем какое соотношение меньше, чтобы масштабировать изображение пропорционально
         let ratio = min(widthRatio, heightRatio)
         let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
         
         let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         
-        // Масштабируем изображение
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -100,60 +127,39 @@ final class CoinCollectionViewCell: UICollectionViewCell {
         
         return newImage ?? image
     }
-    
-    private func updateChangePercentLabelColor() {
-        if let changePercentText = changePercent24HrLabel.text,
-           let changePercent = Double(changePercentText.replacingOccurrences(of: "%", with: "")) {
-            
-            let formattedText: String
-            if changePercent > 0 {
-                formattedText = String(format: "+%.2f%%", changePercent)
-                changePercent24HrLabel.textColor = .green
-            } else if changePercent < 0 {
-                formattedText = String(format: "%.2f%%", changePercent)
-                changePercent24HrLabel.textColor = .red
-            } else {
-                formattedText = "0.00%"
-                changePercent24HrLabel.textColor = .gray
-            }
-            
-            changePercent24HrLabel.text = formattedText
-        }
-    }
 }
 
 //MARK: - setConstraints()
 extension CoinCollectionViewCell {
     private func setConstraints() {
         coinImageView.translatesAutoresizingMaskIntoConstraints = false
+        coinNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        coinSymbolLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceUsdLabel.translatesAutoresizingMaskIntoConstraints = false
+        changePercent24HrLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             coinImageView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.coinImageViewTopSpacing),
             coinImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.coinImageViewLeadingSpacing),
-            coinImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
-        coinNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            coinImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             coinNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.coinNameLabelTopSpacing),
-            coinNameLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.coinNameLabelLeadingSpacing)
-        ])
-        
-        coinSymbolLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            coinNameLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.coinNameLabelLeadingSpacing),
+            
             coinSymbolLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: Constants.coinSymbolLabelTopSpacing),
-            coinSymbolLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.coinSymbolLabelLeadingSpacing)
-        ])
-        
-        priceUsdLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            coinSymbolLabel.leadingAnchor.constraint(equalTo: coinImageView.trailingAnchor, constant: Constants.coinSymbolLabelLeadingSpacing),
+            
             priceUsdLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.priceUsdLabelTopSpacing),
-            priceUsdLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.priceUsdLabelTrailingSpacing)
-        ])
-        
-        changePercent24HrLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            priceUsdLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.priceUsdLabelTrailingSpacing),
+            
             changePercent24HrLabel.topAnchor.constraint(equalTo: priceUsdLabel.bottomAnchor, constant: Constants.changePercent24HrLabelTopSpacing),
             changePercent24HrLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.changePercent24HrLabelTrailingSpacing)
         ])
     }
+}
+
+//MARK: - UICollectionViewCell
+extension UICollectionViewCell {
+    @objc func willDisplay() {}
+    @objc func didEndDisplay() {}
 }

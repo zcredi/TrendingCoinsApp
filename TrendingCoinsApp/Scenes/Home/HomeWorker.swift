@@ -30,7 +30,7 @@ final class HomeWorker: HomeWorkerProtocol {
             return
         }
         
-        networkService.fetchData(url: url, completion: completion) 
+        networkService.fetchData(url: url, completion: completion)
     }
     
     func fetchIcons(completion: @escaping (Result<CryptoCurrencyIcon, NetworkManagerError>) -> Void) {

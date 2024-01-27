@@ -66,16 +66,14 @@ final class DetailViewController: UIViewController {
 extension DetailViewController {
     private func setConstraints() {
         detailView.translatesAutoresizingMaskIntoConstraints = false
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButtonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             detailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             detailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButtonView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            detailView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             backButton.topAnchor.constraint(equalTo: backButtonView.topAnchor),
             backButton.bottomAnchor.constraint(equalTo: backButtonView.bottomAnchor),
             backButton.leadingAnchor.constraint(equalTo: backButtonView.leadingAnchor),

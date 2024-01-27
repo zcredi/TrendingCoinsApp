@@ -11,18 +11,20 @@ public protocol SceneFactory {
     func makeHomeScene() -> UIViewController
 }
 
-class DefaultSceneFactory: SceneFactory {
+final class DefaultSceneFactory: SceneFactory {
     func makeHomeScene() -> UIViewController {
         let viewController = HomeViewController()
         let interactor = HomeInteractor()
         let presenter = HomePresenter()
+        let router = HomeRouter()
         
-        // Создаем экземпляр NetworkManager для использования в HomeWorker
         let networkManager = NetworkService()
         let worker = HomeWorker(networkService: networkManager)
 
         viewController.interactor = interactor
+        viewController.router = router
         interactor.presenter = presenter
+        router.viewController = viewController
         interactor.worker = worker
         presenter.viewController = viewController
 
