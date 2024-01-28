@@ -39,6 +39,7 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
         setConstraints()
         fetchCryptoData()
         setDelegates()
+        addGesture()
     }
     
     private func setupViews() {
@@ -111,6 +112,22 @@ final class HomeViewController: UIViewController, HomeDisplayLogic {
     func displayError(_ viewModel: HomeErrorViewModel) {
         // Отображение ошибки
     }
+    
+    //MARK: - Обработка жестов
+    private func addGesture() {
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapScreen)
+        
+        let swipeScreen = UISwipeGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        swipeScreen.direction = .down
+        swipeScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(swipeScreen)
+    }
+    
+    @objc
+    private func hideKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 //MARK: - setConstraints()
@@ -139,6 +156,7 @@ extension HomeViewController: UISearchBarDelegate {
             hideSearchBar()
         } else {
             setupSearchBar()
+            searchBar.becomeFirstResponder()
         }
     }
     

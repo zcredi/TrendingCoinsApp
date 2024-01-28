@@ -13,6 +13,14 @@
 		867C1AD12B6294290042CB79 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 867C1AD02B6294290042CB79 /* Localizable.strings */; };
 		867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1AD22B62A4170042CB79 /* IconCoinModel.swift */; };
 		867C1AD72B62F6390042CB79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C1AD62B62F6390042CB79 /* DetailViewController.swift */; };
+		86811AE82B66A27A00B6EE56 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86811AE72B66A27A00B6EE56 /* OnboardingViewController.swift */; };
+		86811AEB2B66A28A00B6EE56 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86811AEA2B66A28A00B6EE56 /* SliderCell.swift */; };
+		86811AEE2B66A29D00B6EE56 /* SliderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86811AED2B66A29D00B6EE56 /* SliderData.swift */; };
+		86811AF02B66A2A700B6EE56 /* SliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86811AEF2B66A2A700B6EE56 /* SliderItem.swift */; };
+		86811AFB2B66A69300B6EE56 /* UserDefaults + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86811AFA2B66A69300B6EE56 /* UserDefaults + Extension.swift */; };
+		86811B062B66AEAA00B6EE56 /* Animation 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 86811B032B66AEAA00B6EE56 /* Animation 3.json */; };
+		86811B072B66AEAA00B6EE56 /* Animation 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 86811B042B66AEAA00B6EE56 /* Animation 2.json */; };
+		86811B092B66AFFB00B6EE56 /* Animation 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 86811B082B66AFFB00B6EE56 /* Animation 1.json */; };
 		8695D5832B63CE6700E5F0B1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5822B63CE6700E5F0B1 /* DetailView.swift */; };
 		8695D5852B63CE8E00E5F0B1 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */; };
 		8695D5882B6417A000E5F0B1 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8695D5872B6417A000E5F0B1 /* Array + Extension.swift */; };
@@ -45,6 +53,14 @@
 		867C1AD02B6294290042CB79 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		867C1AD22B62A4170042CB79 /* IconCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCoinModel.swift; sourceTree = "<group>"; };
 		867C1AD62B62F6390042CB79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		86811AE72B66A27A00B6EE56 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		86811AEA2B66A28A00B6EE56 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
+		86811AED2B66A29D00B6EE56 /* SliderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderData.swift; sourceTree = "<group>"; };
+		86811AEF2B66A2A700B6EE56 /* SliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderItem.swift; sourceTree = "<group>"; };
+		86811AFA2B66A69300B6EE56 /* UserDefaults + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Extension.swift"; sourceTree = "<group>"; };
+		86811B032B66AEAA00B6EE56 /* Animation 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation 3.json"; sourceTree = "<group>"; };
+		86811B042B66AEAA00B6EE56 /* Animation 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation 2.json"; sourceTree = "<group>"; };
+		86811B082B66AFFB00B6EE56 /* Animation 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation 1.json"; sourceTree = "<group>"; };
 		8695D5822B63CE6700E5F0B1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8695D5842B63CE8E00E5F0B1 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		8695D5872B6417A000E5F0B1 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
@@ -131,6 +147,43 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		86811AE62B66A26600B6EE56 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				86811AEC2B66A29000B6EE56 /* Models */,
+				86811AE92B66A28100B6EE56 /* Cells */,
+				86811AE72B66A27A00B6EE56 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		86811AE92B66A28100B6EE56 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86811AEA2B66A28A00B6EE56 /* SliderCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		86811AEC2B66A29000B6EE56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86811AED2B66A29D00B6EE56 /* SliderData.swift */,
+				86811AEF2B66A2A700B6EE56 /* SliderItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86811AF32B66A39500B6EE56 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				86811B082B66AFFB00B6EE56 /* Animation 1.json */,
+				86811B042B66AEAA00B6EE56 /* Animation 2.json */,
+				86811B032B66AEAA00B6EE56 /* Animation 3.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		8695D5812B63CE5900E5F0B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +225,7 @@
 		86A3BEA32B600518007EEA83 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				86811AE62B66A26600B6EE56 /* Onboarding */,
 				867C1AD42B62F5DF0042CB79 /* Home */,
 				867C1AD52B62F60A0042CB79 /* Info */,
 			);
@@ -181,6 +235,7 @@
 		86A3BEA42B600523007EEA83 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				86811AF32B66A39500B6EE56 /* Lottie */,
 				86A3BEAA2B600780007EEA83 /* Fonts */,
 				86A3BE982B60032C007EEA83 /* Assets.xcassets */,
 				86A3BE9A2B60032C007EEA83 /* LaunchScreen.storyboard */,
@@ -221,6 +276,7 @@
 				86A3BEB12B6008B1007EEA83 /* UIKit */,
 				86A3BEAF2B6007D9007EEA83 /* UIFont+Extensions.swift */,
 				86A3BEC82B601E56007EEA83 /* UIColor+Extensions.swift */,
+				86811AFA2B66A69300B6EE56 /* UserDefaults + Extension.swift */,
 			);
 			path = UIConstants;
 			sourceTree = "<group>";
@@ -328,10 +384,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				867C1AD12B6294290042CB79 /* Localizable.strings in Resources */,
+				86811B092B66AFFB00B6EE56 /* Animation 1.json in Resources */,
+				86811B072B66AEAA00B6EE56 /* Animation 2.json in Resources */,
 				86A3BE9C2B60032C007EEA83 /* LaunchScreen.storyboard in Resources */,
 				86A3BEAD2B60078C007EEA83 /* SFPro-Regular.otf in Resources */,
 				86A3BE992B60032C007EEA83 /* Assets.xcassets in Resources */,
 				86A3BEAE2B60078C007EEA83 /* SFPro-Semibold.otf in Resources */,
+				86811B062B66AEAA00B6EE56 /* Animation 3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +405,7 @@
 				86A3BEB32B6008C2007EEA83 /* UILabel+Extension.swift in Sources */,
 				867C1AD32B62A4170042CB79 /* IconCoinModel.swift in Sources */,
 				86A3BE902B60032B007EEA83 /* AppDelegate.swift in Sources */,
+				86811AFB2B66A69300B6EE56 /* UserDefaults + Extension.swift in Sources */,
 				86A3BEBB2B6013B8007EEA83 /* SceneFactory.swift in Sources */,
 				86A3BEC12B6013E8007EEA83 /* HomeInteractor.swift in Sources */,
 				86A3BEC32B6013F2007EEA83 /* HomeWorker.swift in Sources */,
@@ -356,14 +416,18 @@
 				869B8E872B6550EC005ACDC4 /* HomeRouter.swift in Sources */,
 				86A3BEB02B6007D9007EEA83 /* UIFont+Extensions.swift in Sources */,
 				86A3BEBF2B6013DC007EEA83 /* HomePresenter.swift in Sources */,
+				86811AF02B66A2A700B6EE56 /* SliderItem.swift in Sources */,
 				8695D5832B63CE6700E5F0B1 /* DetailView.swift in Sources */,
 				86A3BEB92B600BF0007EEA83 /* CoinModel.swift in Sources */,
+				86811AEB2B66A28A00B6EE56 /* SliderCell.swift in Sources */,
 				8695D5852B63CE8E00E5F0B1 /* UIStackView + Extension.swift in Sources */,
 				86A3BEC92B601E56007EEA83 /* UIColor+Extensions.swift in Sources */,
 				86A3BEC72B601E1B007EEA83 /* Gradient+Extension.swift in Sources */,
+				86811AE82B66A27A00B6EE56 /* OnboardingViewController.swift in Sources */,
 				867C1ACF2B6294160042CB79 /* Localizer.swift in Sources */,
 				8695D5882B6417A000E5F0B1 /* Array + Extension.swift in Sources */,
 				86A3BE922B60032B007EEA83 /* SceneDelegate.swift in Sources */,
+				86811AEE2B66A29D00B6EE56 /* SliderData.swift in Sources */,
 				867C1AD72B62F6390042CB79 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
